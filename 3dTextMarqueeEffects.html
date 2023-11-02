@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D Text Marquee Effects</title>
+  <style>
+    html, body {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      display: flex;
+      cursor: default;
+    }
+
+    .inner {
+      width: 400px;
+      height: 200px;
+      line-height: 200px;
+      font-size: 4rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .inner:first-child {
+      background-color: indianred;
+      color: darkred;
+      transform-origin: right;
+      transform: perspective(100px) rotateY(-15deg);
+    }
+
+    .inner:last-child {
+      background-color: lightcoral;
+      color: antiquewhite;
+      transform-origin: left;
+      transform: perspective(100px) rotateY(15deg);
+    }
+
+    .inner span {
+      position: absolute;
+      animation: move 5s linear infinite;
+    }
+
+    .inner:first-child span {
+      animation-delay: 2.5s;
+      left: 100%;
+    }
+
+    @keyframes move {
+      from {
+        left: 100%;
+      }
+      to {
+        left: -100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="inner"><span>Follow Me</span></div>
+    <div class="inner"><span>Follow Me</span></div>
+  </div>
+</body>
+</html>
+
